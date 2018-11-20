@@ -1,0 +1,37 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "en kodebase til alle mine fremtidige opgaver",
+  "main": "server.js",
+  "scripts": {
+    "test": "https://github.com/Andreassv/Codebox",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andreassv/Codebox.git"
+  },
+  "keywords": [
+    "base",
+    "code"
+  ],
+  "author": "Andreas Svendsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Andreassv/Codebox/issues"
+  },
+  "homepage": "https://github.com/Andreassv/Codebox#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "env": "0.0.2",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "spdy": "^4.0.0"
+  },
+  "devDependencies": {
+    "debug": "^4.1.0",
+    "nodemon": "^1.18.6"
+  }
+}
