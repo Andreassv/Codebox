@@ -1,12 +1,9 @@
 const app = require('express')();
 const mysql = require('mysql');
 const pjson = require('./package.json');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const logger = require('morgan');
-const bcrypt = require('bcrypt');
-const fs = require('fs');
+
 require('./modules/location/index')(app);
+require('./config/index')(app);
 
 app.listen(3000);
 
