@@ -1,17 +1,40 @@
 # Changelog
 Alle større ændringer vil blive noteret her i dette dokument
 
+---
+## Versions 
+[0.3.0](#022---2018-11-22)
 
+[0.2.1](#021---2018-11-21)
+
+[0.2.0](#020---2018-11-21)
+
+---
 ## [Unreleased]
+
+### Added
+- Admin pages
+- Evnen til at oploade filer
+---
+
+## 0.3.0 - 2018-11-22
 
 ### Added
 - Server forbindelse
 - Database forbindelse
+- Sider så man kan se dem på nettet i localhost
+### Changed 
+- Hvordan filer bliver kaldt
 
 ### Fixed
-- Nodemon???
+- Nodemon
 ---
-## [0.2.0] - 2018-11-21
+## 0.2.1 - 2018-11-21
+
+### Changed 
+- Minor Changelog changes
+---
+## 0.2.0 - 2018-11-21
 
 ### Added
 - Denne changelog fil
@@ -27,3 +50,4 @@ Alle større ændringer vil blive noteret her i dette dokument
 ### Fixed
 - Config filer
 - Ejs filer
+

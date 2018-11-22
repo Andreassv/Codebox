@@ -1,5 +1,5 @@
 module.exports = function (app) {
     app.get('/', (req, res, next) => {
-        res.send(require('./views/main'));
+        res.render('main', {title: 'BorisGrafik'});
     });
 }
