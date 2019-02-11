@@ -1,6 +1,7 @@
 const app = require('express')();
 const pjson = require('./package.json');
 const port = process.env.PORT || 3000;
+const debug = require('debug')('app');
 
 require('./config/index')(app);
 require('./modules/location/index')(app);
@@ -13,4 +14,3 @@ app.listen(port, error => {
     }
     debug(`${pjson.name} v${pjson.version} is running on http://localhost:${port}`);
 });
-

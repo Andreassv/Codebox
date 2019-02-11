@@ -30,6 +30,7 @@
     "env": "0.0.2",
     "express": "^4.16.4",
     "express-formidable": "^1.2.0",
+    "express-log-errors": "^2.0.2",
     "express-session": "^1.15.6",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0"

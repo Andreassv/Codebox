@@ -1,28 +1,8 @@
 /*jslint browser, es6, for */
 window.addEventListener( 'load', function()
 {   'use strict';
-    MenuPunktAktiv();
 
 });
-/*----------menu----------*/
-function MenuPunktAktiv()
-{   'use strict';
-    var current = "" + window.location;
-    var nav = document.getElementById( 'HovedMenu' );
-    var anchor = nav.getElementsByTagName( 'a' );
-
-    if( current.search( ".html" ) == -1 )
-    {
-        current = current + "index.html";
-    }
-    for (var i = 0; i < anchor.length; i++ )
-    {
-        if( current.toLowerCase() == anchor[i].href.toLowerCase() )
-        {
-            anchor[i].className = "active";
-        }
-    }
-}
 function openNav() {
     document.getElementById("HovedMenu").style.width = "100%";
 }
