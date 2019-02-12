@@ -76,8 +76,9 @@ a.active {
 }   
 @media only screen and (min-width: 600px) { 
 body {
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: 14vh repeat(4, 1fr);
 }
 header {
     background-color: grey;
@@ -88,26 +89,32 @@ header img {
     text-align: left;
 }
 main {
+    padding: 0 5vw;
+    background-color: #b6b6b6;
     grid-column: 2 / 6;
     grid-row: 2 / 5;
+}
+main li {
+    list-style-type: none;
 }   
 footer {
     grid-column: 1 / 6;
     grid-row: 5 / 6;
 }   
 .adminNavigation {
+    padding-left: 1vw;
 	height: auto;
-	font-size: 1em;
-	width: 20%;
+	font-size: 1.5vh;
+	width: 100%;
 	position: static;
-	display: block;
-	overflow-x: visible;
     padding-top: 0;
     grid-column: 1 / 2;
     grid-row: 2 / 5;
 }
 .adminNavigation a, .dropdown-btn {
-	font-size: 1.5em;
+    font-size: 1.5em;
+    margin: initial;
+    text-align: left;
 }
 span {
 	display: none;
@@ -115,8 +122,5 @@ span {
 a.closebtn {
 	font-size: 0;
 	display: none;
-}
-#slides img {
-	height: 100vh;
 }
 }
