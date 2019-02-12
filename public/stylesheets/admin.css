@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+header {
+    background-color: grey;
+}
 /*----------navbar----------*/
 .adminNavigation {
     height: 100%;
@@ -14,7 +17,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 3.75em;
-    text-align:center;
+    text-align: left;
 }
 .adminNavigation a, .dropdown-btn {
     max-width: 80%;
@@ -71,7 +74,27 @@ a.active {
     background-color:#ad8d39;
     color: rgba(86,65,049, 1);
 }   
-@media only screen and (min-width: 600px) {   
+@media only screen and (min-width: 600px) { 
+body {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+header {
+    background-color: grey;
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+}
+header img {
+    text-align: left;
+}
+main {
+    grid-column: 2 / 6;
+    grid-row: 2 / 5;
+}   
+footer {
+    grid-column: 1 / 6;
+    grid-row: 5 / 6;
+}   
 .adminNavigation {
 	height: auto;
 	font-size: 1em;
@@ -79,7 +102,9 @@ a.active {
 	position: static;
 	display: block;
 	overflow-x: visible;
-	padding-top: 0;
+    padding-top: 0;
+    grid-column: 1 / 2;
+    grid-row: 2 / 5;
 }
 .adminNavigation a, .dropdown-btn {
 	font-size: 1.5em;
