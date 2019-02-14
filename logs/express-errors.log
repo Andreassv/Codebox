@@ -1,3 +1,8 @@
+[2019-02-14T12:32:45.622Z]	Error: Could not find the include file "partials/admin.head.ejs"
+[2019-02-14T12:32:03.155Z]	Error: Could not find the include file "admin.partials/head.ejs"
+[2019-02-14T12:31:00.396Z]	Error: Could not find the include file "partials/head.ejs"
+[2019-02-14T12:30:23.581Z]	Error: Failed to lookup view "admin/create.ejs" in views directory "views"
+[2019-02-14T12:29:36.771Z]	Error: Failed to lookup view "admin.create.ejs" in views directory "views"
 [2019-02-13T09:28:32.140Z]	ReferenceError: C:\Xampp\htdocs\Codebox\views\login.ejs:4
     2| <% include partials/header.ejs %>
     3| <section>

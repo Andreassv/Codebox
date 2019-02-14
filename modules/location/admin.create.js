@@ -1,10 +1,10 @@
 const db = require("../../config/mysql")();
 
 module.exports = function (app) {
-    app.get('/signup', (req, res, next) => {
-        res.render('signup');
+    app.get('/admin/create', (req, res, next) => {
+        res.render('admin/admin.create.ejs');
     });
-    app.post('/signup', (req, res, next) => {
+    app.post('/create', (req, res, next) => {
         let success = true;
         let errorMessage;
         if (!req.fields.username || !req.fields.username.lenght > 1) {
