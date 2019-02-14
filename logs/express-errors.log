@@ -1,3 +1,40 @@
+[2019-02-13T09:28:32.140Z]	ReferenceError: C:\Xampp\htdocs\Codebox\views\login.ejs:4
+    2| <% include partials/header.ejs %>
+    3| <section>
+ >> 4|     <h1><%= title %></h1>
+    5|     <form action="/login" method="POST">
+    6|         <div>
+    7|             <label for="loginForm__username">Brugernavn</label>
+
+title is not defined
+[2019-02-13T09:26:28.308Z]	ReferenceError: C:\Xampp\htdocs\Codebox\views\login.ejs:4
+    2| <% include partials/header.ejs %>
+    3| <section>
+ >> 4|     <h1><%= title %></h1>
+    5|     <form action="/login" method="POST">
+    6|         <div>
+    7|             <label for="loginForm__username">Brugernavn</label>
+
+title is not defined
+[2019-02-13T09:26:13.145Z]	ReferenceError: C:\Xampp\htdocs\Codebox\views\login.ejs:4
+    2| <% include partials/header.ejs %>
+    3| <section>
+ >> 4|     <h1><%= title %></h1>
+    5|     <form action="/login" method="POST">
+    6|         <div>
+    7|             <label for="loginForm__username">Brugernavn</label>
+
+title is not defined
+[2019-02-13T09:25:08.698Z]	ReferenceError: fs is not defined
+[2019-02-13T09:23:18.817Z]	ReferenceError: fs is not defined
+[2019-02-12T12:05:47.907Z]	TypeError: Cannot read property 'loginForm__username' of undefined
+[2019-02-12T12:05:06.580Z]	TypeError: Cannot read property 'username' of undefined
+[2019-02-12T12:03:59.033Z]	TypeError: Cannot read property 'loginForm__username' of undefined
+[2019-02-12T11:57:31.284Z]	TypeError: Cannot read property 'loginForm__username' of undefined
+[2019-02-12T11:57:16.654Z]	TypeError: Cannot read property 'loginForm__username' of undefined
+[2019-02-12T11:48:46.469Z]	TypeError: Cannot read property 'username' of undefined
+[2019-02-12T11:48:40.726Z]	TypeError: Cannot read property 'username' of undefined
+[2019-02-12T11:48:05.293Z]	ReferenceError: db is not defined
 [2019-02-12T09:08:07.051Z]	Error: Cannot find module 'users'
 [2019-02-12T08:39:47.613Z]	Error: Cannot find module 'users'
 [2019-02-12T08:37:20.236Z]	Error: Cannot find module 'users'

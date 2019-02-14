@@ -1,6 +1,7 @@
 <nav id="adminMenu" class="adminNavigation" role="navigation">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<button class="dropdown-btn"><i class="far fa-user"></i> Users
+	<a href="/admin"><i class="fas fa-home"></i> Home</a>
+	<button class="dropdown-btn"><i class="fas fa-users"></i> Users
 	</button>
 	  <div class="dropdown-container">
 			<a href="/admin/users">Edit users</a>
@@ -18,10 +19,11 @@
 			<a href="/">link</a>
 			<a href="/">link</a>
 	  </div>
-	<button class="dropdown-btn"><i class="fas fa-feather"></i> Else 
+	<button class="dropdown-btn"><i class="far fa-user"></i> Profile 
 	</button>
-	  <div class="dropdown-container">
-			<a href="/">link</a>
-	  </div>
+		<div class="dropdown-container">
+			<a href="/profile">Profile page</a>
+			<a href="/logout">Logout</a>
+		</div>
 </nav>
 <span id="MenuBurger" onclick="openNav()">&#9776;</span>

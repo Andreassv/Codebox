@@ -1,0 +1,17 @@
+<% include partials/head.ejs %>
+<% include partials/header.ejs %>
+<form action="/signup" method="POST">
+    <h1>Tilmelding</h1>
+    <div class="form_inputGroup">
+        <label for="signForm_username">Brugernavn</label>
+        <input type="text" name="username" id="signForm_navn" value="<%= (typeof username != 'undefined') ? username : '' %>">
+    </div>
+    <div class="form_inputGroup">
+        <label for="signForm_passphrase">Kodeord</label>
+        <input type="passphrase" name="passphrase" id="signForm_passphrase" value="<%= (typeof passphrase != 'undefined') ? passphrase : '' %>">
+    </div>
+    <button type="submit">Send</button>
+</form>
+<p class="form_p"><%= (typeof errorMessage != 'undefined') ? errorMessage : '' %></p>
+<% include partials/footer.ejs %>
+<% include partials/after-footer.ejs %>

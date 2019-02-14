@@ -2,7 +2,9 @@
 Alle større ændringer vil blive noteret her i dette dokument
 
 ---
-## Versions 
+## Versions
+[0.4.0](#023---2019-02-12)
+
 [0.3.0](#022---2018-11-22)
 
 [0.2.1](#021---2018-11-21)
@@ -13,9 +15,17 @@ Alle større ændringer vil blive noteret her i dette dokument
 ## [Unreleased]
 
 ### Added
-- Admin pages
 - Evnen til at oploade filer
+- login
+- bruger roller
+- kryptering
+- opret, slet, opdater i backenden
 ---
+
+## 0.4.0 - 2019-02-12
+
+### Added
+- Admin pages
 
 ## 0.3.0 - 2018-11-22
 
