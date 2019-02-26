@@ -16,7 +16,7 @@ module.exports = function (app) {
             [req.fields.username], (err, rows) => {
                 if (err) throw new Error(err);
                 res.redirect(`/user/${rows.insertId}`);
-            });
+        });
     });
     // app.post('/create-user', (req, res, next) => {
     //     let success = true;

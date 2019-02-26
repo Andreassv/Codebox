@@ -4,17 +4,8 @@
 <form action="/create" method="POST">
     <h1>Create new user</h1>
     <div class="form_inputGroup">
-        <label for="createForm_title">Title</label>
-        <input type="text" name="title" id="createForm_title" value="<%= (typeof title != 'undefined') ? title : '' %>">
-    </div>
-    <div class="form_inputGroup">
-        <label for="createForm_subject">Subject</label>
-        <select name="createForm_subject" id="createForm_subject">
-            <option value="Select">--Please choose an option--</option>
-            <% results.forEach(result => {%>
-            <option value="<%= result.list %>"><%= result.list %></option>
-            <%}) %>
-        </select>
+        <label for="createForm_username">Brugernavn</label>
+        <input type="text" name="username" id="createForm_navn" value="<%= (typeof username != 'undefined') ? username : '' %>">
     </div>
     <div class="form_inputGroup">
         <label for="createForm_passphrase">Kodeord</label>

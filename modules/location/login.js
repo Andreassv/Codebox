@@ -14,7 +14,7 @@ module.exports = function (app) {
             let errormessage;
             if (result.length === 1) {
                 
-                req.session.user = result[0].id;
+                req.session.userid = result[0].id;
                 req.session.role = result[0].level;
                 //console.log(req.session.role);
                 if (req.session.role < 21){

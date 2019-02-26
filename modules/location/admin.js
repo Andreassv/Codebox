@@ -4,11 +4,12 @@ module.exports = function (app) {
     });
 
     app.use('/admin', (req, res, next) => {
-        if (!req.session.user) {
-            res.redirect('/login');
-            return;
-        } else {
-            next();
-        }
+        next();
+        // if (!req.session.userid) {
+        //     res.redirect('/login');
+        //     return;
+        // } else {
+        //     next();
+        // }
     });
 };

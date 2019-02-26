@@ -26,7 +26,7 @@ Alle større ændringer vil blive noteret her i dette dokument
 
 ### Added
 - Admin pages
-
+---
 ## 0.3.0 - 2018-11-22
 
 ### Added

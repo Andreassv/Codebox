@@ -2,7 +2,7 @@
 
 module.exports = function (app) {
     app.use('/profile', (req, res, next) => {
-		if (!req.session.user) {
+		if (!req.session.userid) {
 			res.redirect('/login');
 			return;
 		} else {
@@ -14,9 +14,9 @@ module.exports = function (app) {
     });
 
 // 	app.get('/profile', (req, res, next) => {
-// 		db.query('SELECT * FROM userprofiles WHERE id = ?', [req.session.user], (err, result) => {
+// 		db.query('SELECT * FROM userprofiles WHERE id = ?', [req.session.userid], (err, result) => {
 // 		db.query(`SELECT * FROM ingredients right join users on users.id = 
-// 				 ingredients.recipes_id where users.id = ?;`,[req.session.user], (err, results) => {
+// 				 ingredients.recipes_id where users.id = ?;`,[req.session.userid], (err, results) => {
 // 			if (err) return next(`${err} at db.query (${__filename}:15:5)`);
 // 			res.render('profile', { title: 'Profil', user: result[0], 'results': results });
 // 			console.log(results);
@@ -25,7 +25,7 @@ module.exports = function (app) {
 // 	});
 
 // 	app.patch('/profile', (req, res, next) => {
-// 		db.query('UPDATE profiles SET firstname = ?, lastname = ?, bio = ? WHERE users_id = ?', [req.fields.firstname, req.fields.lastname, req.fields.bio, req.session.user], (err, result) => {
+// 		db.query('UPDATE profiles SET firstname = ?, lastname = ?, bio = ? WHERE users_id = ?', [req.fields.firstname, req.fields.lastname, req.fields.bio, req.session.userid], (err, result) => {
 // 			if (err) return next(`${err} at db.query (${__filename}:23:5)`);
 // 			res.status(204);
 // 			res.end();
@@ -45,7 +45,7 @@ module.exports = function (app) {
 // 				if (err) return next(`${err} at fs.writeFile (${__filename}:37:7)`);
 // 				db.query('INSERT INTO photos SET name = ?', [renamedFilename], (err, result) => {
 // 					if (err) return next(`${err} at db.query (${__filename}:39:9)`);
-// 					db.query('UPDATE profiles SET photos_id = ? WHERE users_id = ?', [result.insertId, req.session.user], (err, result) => {
+// 					db.query('UPDATE profiles SET photos_id = ? WHERE users_id = ?', [result.insertId, req.session.userid], (err, result) => {
 // 						if (err) return next(`${err} at db.query (${__filename}:41:11)`);
 // 						res.status(200);
 // 						res.json({

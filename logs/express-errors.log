@@ -1,3 +1,5 @@
+[2019-02-26T11:55:27.394Z]	Error: Failed to lookup view "admin/edit-site.ejs" in views directory "views"
+[2019-02-26T10:11:02.015Z]	TypeError: db.execute is not a function
 [2019-02-25T11:34:45.379Z]	Error: Failed to lookup view "admin/profile.ejs" in views directory "views"
 [2019-02-15T07:48:18.338Z]	ReferenceError: C:\Xampp\htdocs\Codebox\views\admin\admin.create.ejs:13
     11|         <label for="createForm_subject">Subject</label>

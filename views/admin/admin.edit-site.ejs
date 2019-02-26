@@ -1,0 +1,18 @@
+<% include partials/admin_head.ejs %>
+<% include partials/admin_header.ejs %>
+<% include partials/adminNavigation.ejs %>
+<form action="/admin/edit-site/<%= page.id %>" method="POST">
+    <h1>Edit site</h1>
+    <div class="form_inputGroup">
+        <label for="createForm_title">Title</label>
+        <input type="text" name="title" id="createForm_navn" value="<%= (typeof page.titel != 'undefined') ? page.titel : '' %>">
+    </div>
+    <div class="form_inputGroup">
+        <label for="createForm_content">Content</label>
+        <textarea cols="50" rows="4" name="content" id="createForm_content"><%= (typeof page.content != 'undefined') ? page.content : '' %></textarea>
+    </div>
+    <button type="submit">Send</button>
+</form>
+<p class="form_p"><%= (typeof errorMessage != 'undefined') ? errorMessage : '' %></p>
+<% include partials/admin_footer.ejs %>
+<% include partials/admin_after-footer.ejs %>
