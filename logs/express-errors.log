@@ -1,3 +1,22 @@
+[2019-02-25T11:34:45.379Z]	Error: Failed to lookup view "admin/profile.ejs" in views directory "views"
+[2019-02-15T07:48:18.338Z]	ReferenceError: C:\Xampp\htdocs\Codebox\views\admin\admin.create.ejs:13
+    11|         <label for="createForm_subject">Subject</label>
+    12|         <select name="createForm_subject" id="createForm_subject">
+ >> 13|             <% results.forEach(result => {%>
+    14|             <option value="<%= result.list %>"><%= result.list %></option>
+    15|             <%}) %>
+    16|         </select>
+
+results is not defined
+[2019-02-15T07:43:48.382Z]	ReferenceError: C:\Xampp\htdocs\Codebox\views\admin\admin.create.ejs:13
+    11|         <label for="createForm_subject">Subject</label>
+    12|         <select name="createForm_subject" id="createForm_subject">
+ >> 13|             <% results.forEach(result => {%>
+    14|             <option value="<%= result.list %>"><%= result.list %></option>
+    15|             <%}) %>
+    16|         </select>
+
+results is not defined
 [2019-02-14T12:32:45.622Z]	Error: Could not find the include file "partials/admin.head.ejs"
 [2019-02-14T12:32:03.155Z]	Error: Could not find the include file "admin.partials/head.ejs"
 [2019-02-14T12:31:00.396Z]	Error: Could not find the include file "partials/head.ejs"
