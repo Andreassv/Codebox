@@ -3,25 +3,31 @@ Alle større ændringer vil blive noteret her i dette dokument
 
 ---
 ## Versions
-[0.4.0](#023---2019-02-12)
+[0.5.0](#050---2019-02-28) - 2019-02-28
 
-[0.3.0](#022---2018-11-22)
+[0.4.0](#040---2019-02-12) - 2019-02-12
 
-[0.2.1](#021---2018-11-21)
+[0.3.0](#030---2018-11-22) - 2018-11-22
 
-[0.2.0](#020---2018-11-21)
+[0.2.1](#021---2018-11-21) - 2018-11-21
+
+[0.2.0](#020---2018-11-21) - 2018-11-21
 
 ---
 ## [Unreleased]
 
 ### Added
 - Evnen til at oploade filer
-- login
-- bruger roller
 - kryptering
 - opret, slet, opdater i backenden
 ---
 
+## 0.5.0 - 2019-02-28
+
+### Added
+- Bruger roller
+- login
+---
 ## 0.4.0 - 2019-02-12
 
 ### Added

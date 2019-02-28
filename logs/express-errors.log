@@ -1,3 +1,31 @@
+[2019-02-27T09:30:03.153Z]	TypeError: C:\Xampp\htdocs\Codebox\views\admin\admin.cards.ejs:21
+    19|             <th>Functions</th>
+    20|         </tr>
+ >> 21|     <% results.forEach(result => {%>
+    22|         <tr>
+    23|             <td><%= result.name %></td>
+    24|             <td><%= result.image %></td>
+
+Cannot read property 'forEach' of undefined
+[2019-02-27T09:27:26.513Z]	TypeError: C:\Xampp\htdocs\Codebox\views\admin\admin.cards.ejs:20
+    18|             <th>Character</th>
+    19|         </tr>
+ >> 20|     <% results.forEach(result => {%>
+    21|         <tr>
+    22|             <td><%= result.name %></td>
+    23|             <td><%= result.image %></td>
+
+Cannot read property 'forEach' of undefined
+[2019-02-27T09:27:20.319Z]	TypeError: C:\Xampp\htdocs\Codebox\views\admin\admin.cards.ejs:20
+    18|             <th>Character</th>
+    19|         </tr>
+ >> 20|     <% results.forEach(result => {%>
+    21|         <tr>
+    22|             <td><%= result.name %></td>
+    23|             <td><%= result.image %></td>
+
+Cannot read property 'forEach' of undefined
+[2019-02-27T09:26:06.141Z]	Error: Failed to lookup view "admin/cards.ejs" in views directory "views"
 [2019-02-26T11:55:27.394Z]	Error: Failed to lookup view "admin/edit-site.ejs" in views directory "views"
 [2019-02-26T10:11:02.015Z]	TypeError: db.execute is not a function
 [2019-02-25T11:34:45.379Z]	Error: Failed to lookup view "admin/profile.ejs" in views directory "views"

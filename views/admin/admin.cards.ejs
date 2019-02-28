@@ -1,0 +1,39 @@
+<% include partials/admin_head.ejs %>
+<% include partials/admin_header.ejs %>
+<% include partials/adminNavigation.ejs %>
+<main>
+    <h1>All Cards</h1>
+    <h4> <a href="/admin/create-card"><i class="fas fa-plus-square"></i> Add a new card</a></h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Rarity</th>
+            <th>Type</th>
+            <th>Energy</th>
+            <th>Description</th>
+            <th>Name+</th>
+            <th>Energy+</th>
+            <th>Description+</th>
+            <th>Character</th>
+            <th>Functions</th>
+        </tr>
+    <% results.forEach(result => {%>
+        <tr>
+            <td><%= result.name %></td>
+            <td><img src="/img/<%= result.image %>" alt=""></td>
+            <td><%= result.niveau %></td>
+            <td><%= result.variant %></td>
+            <td><%= result.energy %></td>
+            <td><%= result.description %></td>
+            <td><%= result.name_plus %></td>
+            <td><%= result.energy_plus %></td>
+            <td><%= result.description_plus %></td>
+            <td><%= result.char_name %></td>
+            <td><a href='/admin/edit-cards/<%= result.id %>'><i class="far fa-edit"></i></a><a onclick='return confirm("Er du sikker på at du vill slette siden <%= result.titel %>?")' href="/admin/delete-card/<%= result.id %>"><i class="fas fa-trash-alt"></i></a></td>
+        </tr>
+    <%}) %>
+    </table>
+</main>
+<% include partials/admin_footer.ejs %>
+<% include partials/admin_after-footer.ejs %>
