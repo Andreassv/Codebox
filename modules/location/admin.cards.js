@@ -13,10 +13,42 @@ module.exports = function (app) {
     app.get('/admin/create-card', (req, res, next) => {
         res.render('admin/admin.create-card.ejs');
     });
+    // function featureChecker() {
+    //     const form = document.getElementById('createForm_image');
+    //     return(('draggable' in form) || ('ondragstart' in form && 'ondrop' in form)) && 'FileReader' in window && 'FormData' in window;
+    // }
 
+    // if(featureChecker()) {
+    //     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    //         form.addEventListener(eventName, preventDefaults, false);
+    //     });
+    //     function preventDefaults(e) {
+    //         e.preventDefault();
+    //         e.stopPropagation();
+    //     }
+    //     form.addEventListener('drop', handleDrop, false);
+
+    //     function handleDrop(e) {
+    //         let dt = e.dataTransfer;
+    //         let files = dt.files;
+    
+    //         let reader = new FileReader();
+    //     }
+    // };
     app.post('/admin/cards', (req, res, next) => {
-
-        
+        if (!req.files || !req.files.file) {
+            return next(new Error('ingen billeder er fundet'));
+        }
+        fs.readFile(req.files.file.path, (err, data) => {
+            if (err) {
+            return next(new Error('der er opstået en uventet fejl'));
+            }
+            fs.writeFile(`./public/img/${req.files.file.name}`, data, (err) => {
+                if (err) {
+                    return next(new Error('Filen kan ikke gemmes.'));
+                }
+            });
+        });
 
         db.query(`INSERT INTO cards SET name = ?, image = ?, fk_rarity = ?, fk_type = ?, 
         energy = ?, description = ?, name_plus = ?, energy_plus = ?, description_plus = ?, fk_charclass = ? `,
