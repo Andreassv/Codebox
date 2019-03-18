@@ -35,28 +35,52 @@ module.exports = function (app) {
     //         let reader = new FileReader();
     //     }
     // };
-    app.post('/admin/cards', (req, res, next) => {
-        if (!req.files || !req.files.file) {
-            return next(new Error('ingen billeder er fundet'));
+    app.post('/admin/cards', async (req, res, next) => {
+        if (!/image/.test(req.files.file.type)) {
+            return res.send('Den uploadede fil er ikke et billede')
         }
-        fs.readFile(req.files.file.path, (err, data) => {
-            if (err) {
-            return next(new Error('der er opstået en uventet fejl'));
-            }
-            fs.writeFile(`./public/img/${req.files.file.name}`, data, (err) => {
-                if (err) {
-                    return next(new Error('Filen kan ikke gemmes.'));
-                }
-            });
-        });
+        try {
+            const uploadDir = '.public/img/';
+            const data = fs.readFileSync(req.files.file.path);
+            const newImageName = Date.now() + '_' + req.files.file.name;
+            fs.writeFileSync(uploadDir + newImageName, data);
+            
+            const result = await db.query(`INSERT INTO cards SET name = ?, image = ?, fk_rarity = ?, fk_type = ?, 
+            energy = ?, description = ?, name_plus = ?, energy_plus = ?, description_plus = ?, fk_charclass = ?`,
+                [req.fields.name, newImageName, req.fields.rarity, req.fields.type, req.fields.energy, 
+                req.fields.decription, req.fields.name_plus, req.fields.energy_plus, 
+                req.fields.description_plus, req.fields.character], (err, rows) => {
+                    if (err) return next(err);
+                    res.redirect('/img/' + newImageName);
+            })
+        } catch (error) {
+            return next(error);
+        }
 
-        db.query(`INSERT INTO cards SET name = ?, image = ?, fk_rarity = ?, fk_type = ?, 
-        energy = ?, description = ?, name_plus = ?, energy_plus = ?, description_plus = ?, fk_charclass = ? `,
-        [req.fields.name, req.files.file, req.fields.rarity, req.fields.type, req.fields.energy, req.fields.decription, req.fields.name_plus, req.fields.energy_plus, req.fields.description_plus, req.fields.character], (err, rows) => {
-            if (err) throw new Error(err);
-            res.redirect(`/admin/cards`);
-        });
     });
+    // app.post('/admin/cards', (req, res, next) => {
+    //     const uploadDir = '.public/img/';
+    //     if (!req.files || !req.files.file) {
+    //         return next(new Error('ingen billeder er fundet'));
+    //     }
+    //     fs.readFile(req.files.file.path, (err, data) => {
+    //         if (err) {
+    //         return next(new Error('der er opstået en uventet fejl'));
+    //         }
+    //         fs.writeFile(`./public/img/${req.files.file.name}`, data, (err) => {
+    //             if (err) {
+    //                 return next(new Error('Filen kan ikke gemmes.'));
+    //             }
+    //         });
+    //     });
+    
+    //     db.query(`INSERT INTO cards SET name = ?, image = ?, fk_rarity = ?, fk_type = ?, 
+    //     energy = ?, description = ?, name_plus = ?, energy_plus = ?, description_plus = ?, fk_charclass = ? `,
+    //     [req.fields.name, req.files.file, req.fields.rarity, req.fields.type, req.fields.energy, req.fields.decription, req.fields.name_plus, req.fields.energy_plus, req.fields.description_plus, req.fields.character], (err, rows) => {
+    //         if (err) throw new Error(err);
+    //         res.redirect(`/admin/cards`);
+    //     });
+    // });
 
     app.get('/admin/edit-site/:id', (req, res, next) => {
         db.query(`SELECT id, titel, content FROM pages
