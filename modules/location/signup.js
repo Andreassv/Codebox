@@ -1,4 +1,5 @@
 const db = require("../../config/mysql")();
+const bcrypt = require('bcryptjs');
 
 module.exports = function (app) {
     app.get('/signup', (req, res, next) => {
@@ -16,8 +17,9 @@ module.exports = function (app) {
             errorMessage = 'Dit kodeord skal være på minimum 4 tegn';
         }
         if (success) {
+            let hashhedpassphrase = bcrypt.hashSync(req.fields.passphrase, 10);
             let message;
-            db.query('INSERT INTO users SET username = ?, passphrase = ?, roles_id = (SELECT id from roles WHERE level = 10)', [req.fields.username, req.fields.passphrase],
+            db.query('INSERT INTO users SET username = ?, passphrase = ?, roles_id = (SELECT id from roles WHERE level = 10)', [req.fields.username, hashhedpassphrase],
                 (error, result) => { 
                 if (error) {
                     message = `noget gik galt: ${error}`;

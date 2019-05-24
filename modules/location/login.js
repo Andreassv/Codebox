@@ -1,4 +1,5 @@
 const db = require("../../config/mysql")();
+const bcrypt = require('bcryptjs');
 
 module.exports = function (app) {
     app.get('/login', (req, res) => {
@@ -6,25 +7,26 @@ module.exports = function (app) {
     });
     
     app.post('/login', (req, res) => {
-        db.query(`SELECT users.id, roles.level FROM users 
+        db.query(`SELECT users.id, users.username, users.passphrase, roles.level FROM users 
         INNER JOIN roles ON roles.id = users.roles_id
-        WHERE username = ? AND passphrase = ?`, 
-        [req.fields.username, req.fields.passphrase], (err, result) => { 
+        WHERE username = ?`, 
+        [req.fields.username], (err, result) => { 
         if (err) return res.send(err);
             let errormessage;
             if (result.length === 1) {
-                
-                req.session.userid = result[0].id;
-                req.session.role = result[0].level;
-                //console.log(req.session.role);
-                if (req.session.role < 21){
-                    res.redirect('/admin');
-                }                
-                else if (req.session.role < 90){
-                    res.redirect('/admin/users');
-                }
-                else if (req.session.role >= 90){
-                    res.redirect('/admin/sites');
+                if(bcrypt.compareSync(req.fields.passphrase, result[0].passphrase)){
+                    req.session.userid = result[0].id;
+                    req.session.role = result[0].level;
+                    //console.log(req.session.role);
+                    if (req.session.role < 21){
+                        res.redirect('/admin');
+                    }                
+                    else if (req.session.role < 90){
+                        res.redirect('/admin/users');
+                    }
+                    else if (req.session.role >= 90){
+                        res.redirect('/admin/sites');
+                    }  
                 }
             } else {
                 res.redirect('/login');

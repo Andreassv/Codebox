@@ -42,6 +42,26 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+const deletebutton = document.querySelectorAll('.delete');
+deletebutton.forEach(btn => {
+	btn.addEventListener('click', 
+	event => {
+		const id = event.target.dataset.id;
+
+		fetch(`/admin/delete-card/${id}`, {
+			'method':"DELETE"
+		})
+				.then(Response => {
+					if (Response.status === 200) {
+						
+						window.location.reload();
+
+					} else if(Response.status === 401) {
+						document.querySelector('.dangermessage').innerHTML = 'Du har ikke den nødvendige niveau til at udføre denne handling';
+					}
+		});
+	});
+});
 </script>
 	<noscript>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">

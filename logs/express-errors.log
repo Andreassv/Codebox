@@ -1,3 +1,31 @@
+[2019-05-15T08:46:47.451Z]	ReferenceError: C:\Xampp\htdocs\Codebox\views\admin\admin.edit-card.ejs:19
+    17|         <select name="rarity" id="updateForm_niveau">
+    18|             <% rarity.forEach((r) => { %>
+ >> 19|                 <option value="<%= r.id %>" <%= r.id === result.fk_rarity ? 'selected':'' %>></option>><%= r.niveau %></option>
+    20|             <% }) %>
+    21|         </select>
+    22|     </div>
+
+result is not defined
+[2019-05-14T06:36:53.058Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-14T06:15:53.669Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-14T06:15:04.678Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-13T11:08:39.944Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-13T11:08:11.208Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-13T11:07:28.905Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-13T11:05:51.079Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-13T11:05:43.124Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-13T11:04:52.857Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-13T11:03:22.627Z]	Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 2
+[2019-05-13T10:58:07.406Z]	Error: ENOENT: no such file or directory, unlink 'C:\Xampp\htdocs\Codebox\public\img\undefined'
+[2019-05-10T09:34:47.740Z]	Error: Failed to lookup view "admin/admin.edit-card.ejs" in views directory "views"
+[2019-05-10T09:33:32.695Z]	Error: Failed to lookup view "admin/admin.edit-card.ejs" in views directory "views"
+[2019-05-06T08:30:30.405Z]	Error: ER_BAD_NULL_ERROR: Column 'description' cannot be null
+[2019-05-06T08:30:15.896Z]	Error: ER_BAD_NULL_ERROR: Column 'description' cannot be null
+[2019-05-06T08:29:06.843Z]	ReferenceError: fs is not defined
+[2019-05-06T08:28:37.009Z]	ReferenceError: fs is not defined
+[2019-05-06T08:28:03.890Z]	ReferenceError: fs is not defined
+[2019-05-06T08:27:58.953Z]	ReferenceError: fs is not defined
 [2019-03-01T09:48:08.664Z]	Error: ingen billeder er fundet
 [2019-03-01T07:36:17.018Z]	Error: ingen billeder er fundet
 [2019-02-27T09:30:03.153Z]	TypeError: C:\Xampp\htdocs\Codebox\views\admin\admin.cards.ejs:21

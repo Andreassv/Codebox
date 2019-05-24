@@ -26,11 +26,12 @@
             <td><%= result.variant %></td>
             <td><%= result.energy %></td>
             <td><%= result.description %></td>
-            <td><%= result.name_plus %></td>
+            <td><% if result.name_plus === "null" remove else <%= result.name_plus %> %></td>
             <td><%= result.energy_plus %></td>
             <td><%= result.description_plus %></td>
             <td><%= result.char_name %></td>
-            <td><a href='/admin/edit-cards/<%= result.id %>'><i class="far fa-edit"></i></a><a onclick='return confirm("Er du sikker på at du vill slette siden <%= result.titel %>?")' href="/admin/delete-card/<%= result.id %>"><i class="fas fa-trash-alt"></i></a></td>
+            <td><a href='/admin/edit-card/<%= result.id %>'class="far fa-edit"></a>
+                <a href="admin/delete-card/<%= result.id %>" data-id="<%= result.id %>" class="fas fa-trash-alt delete"></a>
         </tr>
     <%}) %>
     </table>
