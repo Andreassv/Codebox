@@ -49,8 +49,31 @@ body {
 	font-size: var(--fontSize);
 	color: var(--colorPrimaryForeground);
 	background-color: var(--colorPrimaryBackground);
+	display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 14vh repeat(4, 1fr);
 }
-
+header {
+    background-color: grey;
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+}
+header img {
+    text-align: left;
+}
+main {
+    padding: 0 5vw;
+    background-color: #b6b6b6;
+    grid-column: 2 / 6;
+    grid-row: 2 / 5;
+}
+main li {
+    list-style-type: none;
+}   
+footer {
+    grid-column: 1 / 6;
+    grid-row: 5 / 6;
+} 
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--fontFaceSecondary);
 	font-display: swap;

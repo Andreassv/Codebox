@@ -17,6 +17,7 @@ module.exports = function (app) {
                 if(bcrypt.compareSync(req.fields.passphrase, result[0].passphrase)){
                     req.session.userid = result[0].id;
                     req.session.role = result[0].level;
+                    app.locals.userLevel = result[0].level;
                     //console.log(req.session.role);
                     if (req.session.role < 21){
                         res.redirect('/admin');
@@ -37,6 +38,7 @@ module.exports = function (app) {
     });
     app.get('/logout', (req, res) => {
         req.session.destroy();
+        app.locals.userLevel = '';
         res.redirect('/');
     });
 };

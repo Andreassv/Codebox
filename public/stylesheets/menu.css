@@ -11,6 +11,8 @@
     transition: 0.5s;
     padding-top: 3.75em;
     text-align:center;
+    grid-column: 1 / 6;
+    grid-row: 2 / 2;
 }
 .primaryNavigation a, .dropdown-btn {
     max-width: 80%;
@@ -73,10 +75,23 @@ a.active {
 	position: static;
 	display: block;
 	overflow-x: visible;
-	padding-top: 0;
+    padding-top: 0;
+    text-align: initial;
 }
 .primaryNavigation a, .dropdown-btn {
 	font-size: 1.5em;
+}
+.dropdown-btn {
+    position: relative;
+    width: 15vw;
+}
+.dropdown-container {
+    position: absolute;
+    background-color: inherit;
+    padding: 0.5vh 0.5vw;
+}
+.dropdown-container a{
+    display: block;
 }
 span {
 	display: none;

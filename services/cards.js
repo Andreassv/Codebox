@@ -24,9 +24,17 @@ exports.getType = function () {
         });
     });
 };
-exports.getType = function () {
+exports.getEnergy = function () {
     return new Promise(function (resolve, reject) {
-        db.query("SELECT * FROM cardtypes", function(err, result) {
+        db.query("SELECT * FROM energys", function(err, result) {
+            if (err) return reject(err);
+            resolve(result)
+        });
+    });
+};
+exports.getChar = function () {
+    return new Promise(function (resolve, reject) {
+        db.query("SELECT * FROM charclasses", function(err, result) {
             if (err) return reject(err);
             resolve(result)
         });

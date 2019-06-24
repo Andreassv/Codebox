@@ -3,7 +3,7 @@
 <% include partials/adminNavigation.ejs %>
 <form data-id="<%= results.id %>" enctype="multipart/form-data" method="POST">
     <h1>Update a card</h1>
-    <h3>Fields market with a* have to be filled, all oter are optional</h3>
+    <h3>Fields market with a* have to be filled</h3>
     <div class="form_inputGroup">
         <label for="updateForm_name">Name*</label>
         <input type="text" name="name" id="updateForm_name" value="<%= results.name %>">
@@ -23,19 +23,17 @@
     <div class="form_inputGroup">
         <label for="updateForm_type">Type*</label>
         <select name="type" id="updateForm_type">
-                <% types.forEach((t) => { %>
-                    <option value="<%= t.id %>" <%= t.id === results.fk_type ? 'selected':'' %>><%= t.variant %></option>
-                <% }) %>
+            <% types.forEach((t) => { %>
+                <option value="<%= t.id %>" <%= t.id === results.fk_type ? 'selected':'' %>><%= t.variant %></option>
+            <% }) %>
         </select>
     </div>
     <div class="form_inputGroup">
         <label for="updateForm_energy">Energy</label>
-        <select name="energy" id="updateForm_energy" value="<%= results.energy %>">
-            <option selected value=""></option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+        <select name="energy" id="updateForm_energy">
+            <% energy.forEach((e) => { %>
+                <option value="<%= e.id %>" <%= e.id === results.fk_energy ? 'selected':'' %>><%= e.cost %></option>
+            <% }) %>
         </select>
     </div>
     <div class="form_inputGroup">
@@ -43,30 +41,11 @@
         <textarea cols="50" rows="4" name="description" id="updateForm_description"><%= results.description %></textarea>
     </div>
     <div class="form_inputGroup">
-        <label for="updateForm_name">Name+</label>
-        <input type="text" name="name_plus" id="updateForm_name_plus" value="<%= results.name_plus %>">
-    </div>
-    <div class="form_inputGroup">
-        <label for="updateForm_energy_plus">Energy+</label>
-        <select name="energy_plus" id="updateForm_energy_plus">
-            <option selected value="<%= results.energy_plus %>"></option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </div>
-    <div class="form_inputGroup">
-        <label for="updateForm_description">Description+</label>
-        <textarea cols="50" rows="4" name="description_plus" id="updateForm_description_plus"><%= results.description_plus %></textarea>
-    </div>
-    <div class="form_inputGroup">
         <label for="updateForm_character">Character*</label>
-        <select name="character" id="updateForm_character" value="<%= results.character %>">
-            <option value="1">The Ironclad</option>
-            <option value="2">The Silent</option>
-            <option value="3">The Defect</option>
-            <option value="4">Neutral</option>
+        <select name="character" id="updateForm_character">
+                <% energy.forEach((c) => { %>
+                    <option value="<%= c.id %>" <%= c.id === results.fk_charclass ? 'selected':'' %>><%= c.chars %></option>
+                <% }) %>
         </select>
     </div>
     <button type="submit">Send</button>

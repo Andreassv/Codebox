@@ -3,4 +3,5 @@ module.exports = function (app) {
 		title: 'Kodebase',
 		description: 'Basepoint for andre opgaver'
 	}
+	app.locals.userLevel = "";
 };

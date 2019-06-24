@@ -5,16 +5,16 @@
     <h1>Create a new card</h1>
     <h3>Fields market with a* have to be filled, all oter are optional</h3>
     <div class="form_inputGroup">
-        <label for="createForm_name">Name*</label>
-        <input type="text" name="name" id="createForm_name">
+        <label for="createForm_name">Name:</label>
+        <input type="text" name="name" id="createForm_name" required>
     </div>
     <div class="form_inputGroup">
-        <label for="createForm_image">image*</label>
-        <input type="file" name="image" id="createForm_image">
+        <label for="createForm_image">image:</label>
+        <input type="file" name="image" id="createForm_image" required>
     </div>
     <div class="form_inputGroup">
-        <label for="createForm_niveau">Rarity*</label>
-        <select name="rarity" id="createForm_niveau">
+        <label for="createForm_niveau">Rarity:</label>
+        <select name="rarity" id="createForm_niveau" required>
             <option value="1">Starter</option>
             <option value="2">Common</option>
             <option value="3">Uncommon</option>
@@ -24,8 +24,8 @@
         </select>
     </div>
     <div class="form_inputGroup">
-        <label for="createForm_type">Type*</label>
-        <select name="type" id="createForm_type">
+        <label for="createForm_type">Type:</label>
+        <select name="type" id="createForm_type" required>
             <option value="1">Attack</option>
             <option value="2">Skill</option>
             <option value="3">Power</option>
@@ -35,20 +35,20 @@
         </select>
     </div>
     <div class="form_inputGroup">
-        <label for="createForm_energy">Energy</label>
+        <label for="createForm_energy">Energy:</label>
         <select name="energy" id="createForm_energy">
             <option selected value=""></option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="1">0</option>
+            <option value="2">1</option>
+            <option value="3">2</option>
+            <option value="4">3</option>
         </select>
     </div>
     <div class="form_inputGroup">
-        <label for="createForm_description">Description*</label>
-        <textarea cols="50" rows="4" name="description" id="createForm_description"></textarea>
+        <label for="createForm_description">Description:</label>
+        <textarea cols="50" rows="4" name="description" id="createForm_description" required></textarea>
     </div>
-    <div class="form_inputGroup">
+    <!-- <div class="form_inputGroup">
         <label for="createForm_name">Name+</label>
         <input type="text" name="name_plus" id="createForm_name_plus">
     </div>
@@ -65,9 +65,9 @@
     <div class="form_inputGroup">
         <label for="createForm_description">Description+</label>
         <textarea cols="50" rows="4" name="description_plus" id="createForm_description_plus"></textarea>
-    </div>
+    </div> -->
     <div class="form_inputGroup">
-        <label for="createForm_character">Character*</label>
+        <label for="createForm_character">Character:</label>
         <select name="character" id="createForm_character">
             <option value="1">The Ironclad</option>
             <option value="2">The Silent</option>

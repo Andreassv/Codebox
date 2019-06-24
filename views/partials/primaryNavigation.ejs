@@ -1,9 +1,11 @@
 <nav id="HovedMenu" class="primaryNavigation" role="navigation">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<button class="dropdown-btn">Pages
+	<button class="dropdown-btn">Articles
 	</button>
 	  <div class="dropdown-container">
-			<a href="/opg21">opgave 2.1</a>
+
+			<a href="article/">article</a>
+
 	  </div>
 	<button class="dropdown-btn">Products
 	</button>
@@ -14,8 +16,12 @@
 	</button>
 	  <div class="dropdown-container">
 			<a href="/signup">Sign up</a>
+			<% if(!userLevel) { %>
 			<a href="/login">login</a>
+			<% } %>
+			<% if(userLevel == 10 || userLevel == 40|| userLevel == 80|| userLevel == 90 || userLevel == 100) { %>	
 			<a href="/logout">Logout</a>
+			<% } %>
 	  </div>
 </nav>
 <span id="MenuBurger" onclick="openNav()">&#9776;</span>

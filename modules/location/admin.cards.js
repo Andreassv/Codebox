@@ -5,7 +5,8 @@ const cardService = require("../../services/cards");
 
 module.exports = function (app) {
     app.get('/admin/cards', (req, res, next) => {
-        db.query(`SELECT cards.id, name, image, niveau, variant, energy, description, name_plus, energy_plus, description_plus, char_name FROM cards
+        db.query(`SELECT cards.id, name, image, niveau, variant, energys.cost, description, char_name FROM cards
+		INNER JOIN energys ON fk_energy = energys.id
         INNER JOIN raritys ON fk_rarity = raritys.id
         INNER JOIN cardtypes ON fk_type = cardtypes.id
         INNER JOIN characters ON fk_charclass = characters.id;`, (error, results) => {
@@ -49,10 +50,9 @@ module.exports = function (app) {
             fs.writeFileSync(uploadDir + newImageName, data);
             
             const result = await db.query(`INSERT INTO cards SET name = ?, image = ?, fk_rarity = ?, fk_type = ?, 
-            energy = ?, description = ?, name_plus = ?, energy_plus = ?, description_plus = ?, fk_charclass = ?`,
+            fk_energy = ?, description = ?, fk_charclass = ?`,
                 [req.fields.name, newImageName, req.fields.rarity, req.fields.type, req.fields.energy, 
-                req.fields.description, req.fields.name_plus, req.fields.energy_plus, 
-                req.fields.description_plus, req.fields.character], (err, rows) => {
+                req.fields.description, req.fields.character], (err, rows) => {
                     if (err) return next(err);
                     res.redirect('/admin/cards');
             })
@@ -67,7 +67,9 @@ module.exports = function (app) {
             const card = await cardService.getOneCard(req.params.id);
             const rarity = await cardService.getRarity();
             const types = await cardService.getType();
-            res.render('admin/admin.edit-card.ejs', { 'results':card,rarity,types});
+            const energy = await cardService.getEnergy();
+            const char = await cardService.getChar();
+            res.render('admin/admin.edit-card.ejs', { 'results':card,rarity,types,energy,char});
         } catch (error) {
             next(error);
         }
@@ -91,10 +93,9 @@ module.exports = function (app) {
             fs.writeFileSync(uploadDir + newImageName, data);
             
             db.query(`UPDATE cards SET name = ?, image = ?, fk_rarity = ?, fk_type = ?, 
-            energy = ?, description = ?, name_plus = ?, energy_plus = ?, description_plus = ?, fk_charclass = ? WHERE cards.id = ?`,
+            fk_energy = ?, description = ?, fk_charclass = ? WHERE cards.id = ?`,
                 [req.fields.name, newImageName, req.fields.rarity, req.fields.type, req.fields.energy, 
-                req.fields.description, req.fields.name_plus, req.fields.energy_plus, 
-                req.fields.description_plus, req.fields.character, req.params.id], (err, rows) => {
+                req.fields.description, req.fields.character, req.params.id], (err, rows) => {
                     if (err) return next(err);
                     res.redirect('/admin/cards');
             });
@@ -105,25 +106,27 @@ module.exports = function (app) {
 
     // Delete funktion som fjerner billede fra public mappen og fra databasen.
     app.delete('/admin/delete-card/:id', (req, res, next) => {
-        let id = req.params.id
-        db.query(`SELECT image FROM cards WHERE id = ?`,[id], (err, data) => {
-            console.log(data)
-            if(err) {
-                throw err;
-            }
-            fs.unlink(`./public/img/${data[0].image}`, (err, data) => {
-                if(err) {
-                    throw err;
-                }   
-            });
-            db.query('DELETE FROM cards WHERE id=?',[req.params.id], (err, data) => {
+        if (userLevel == 90 || userLevel == 100 ) {
+            let id = req.params.id
+            db.query(`SELECT image FROM cards WHERE id = ?`,[id], (err, data) => {
+                console.log(data)
                 if(err) {
                     throw err;
                 }
-                res.status(200);
-                res.end();
+                fs.unlink(`./public/img/${data[0].image}`, (err, data) => {
+                    if(err) {
+                        throw err;
+                    }   
+                });
+                db.query('DELETE FROM cards WHERE id=?',[req.params.id], (err, data) => {
+                    if(err) {
+                        throw err;
+                    }
+                    res.status(200);
+                    res.end();
+                })
+                res.redirect('/admin/cards');
             })
-            res.redirect('/admin/cards');
-        })
+        }
     });
 };
