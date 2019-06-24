@@ -64,8 +64,8 @@ header img {
 main {
     padding: 0 5vw;
     background-color: #b6b6b6;
-    grid-column: 2 / 6;
-    grid-row: 2 / 5;
+    grid-column: 1 / 6;
+    grid-row: 3 / 5;
 }
 main li {
     list-style-type: none;

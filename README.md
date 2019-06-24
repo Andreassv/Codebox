@@ -2,6 +2,11 @@
 [Changelog](./CHANGELOG.md)
 ## Projekt beskrivelse
 
+Login til en admin:
+jens 123456
+
+login til en almindelig bruger:
+karl 12233
 #### En template af koder som kan bruges til alle fremtidige opgaver
 ---
 ## Code Skruktur

@@ -1,0 +1,30 @@
+<% include partials/head.ejs %>
+<% include partials/header.ejs %>
+<% include partials/primaryNavigation.ejs %>
+<main>
+    <h1>All Cards</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Rarity</th>
+            <th>Type</th>
+            <th>Energy</th>
+            <th>Description</th>
+            <th>Character</th>
+        </tr>
+        <% results.forEach(result => { %>
+            <tr>
+                <td><a href="/cards/<%= result.id %>"><%= result.name %></a></td>
+                <td><img src="/img/<%= result.image %>" alt=""></td>
+                <td><%= result.niveau %></td>
+                <td><%= result.variant %></td>
+                <td><%= result.cost %></td>
+                <td><%= result.description %></td>
+                <td><%= result.char_name %></td>
+            </tr>
+        <%}) %>
+    </table>
+</main>
+<% include partials/footer.ejs %>
+<% include partials/after-footer.ejs %>
