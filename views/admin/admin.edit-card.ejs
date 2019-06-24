@@ -1,0 +1,56 @@
+<% include partials/admin_head.ejs %>
+<% include partials/admin_header.ejs %>
+<% include partials/adminNavigation.ejs %>
+<form data-id="<%= results.id %>" enctype="multipart/form-data" method="POST">
+    <h1>Update a card</h1>
+    <h3>Fields market with a* have to be filled</h3>
+    <div class="form_inputGroup">
+        <label for="updateForm_name">Name*</label>
+        <input type="text" name="name" id="updateForm_name" value="<%= results.name %>">
+    </div>
+    <div class="form_inputGroup">
+        <label for="updateForm_image">image*</label>
+        <input type="file" name="image" id="updateForm_image" value="<%= results.image %>">
+    </div>
+    <div class="form_inputGroup">
+        <label for="updateForm_niveau">Rarity*</label>
+        <select name="rarity" id="updateForm_niveau">
+            <% rarity.forEach((r) => { %>
+                <option value="<%= r.id %>" <%= r.id === results.fk_rarity ? 'selected':'' %>><%= r.niveau %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="form_inputGroup">
+        <label for="updateForm_type">Type*</label>
+        <select name="type" id="updateForm_type">
+            <% types.forEach((t) => { %>
+                <option value="<%= t.id %>" <%= t.id === results.fk_type ? 'selected':'' %>><%= t.variant %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="form_inputGroup">
+        <label for="updateForm_energy">Energy</label>
+        <select name="energy" id="updateForm_energy">
+            <% energy.forEach((e) => { %>
+                <option value="<%= e.id %>" <%= e.id === results.fk_energy ? 'selected':'' %>><%= e.cost %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="form_inputGroup">
+        <label for="updateForm_description">Description*</label>
+        <textarea cols="50" rows="4" name="description" id="updateForm_description"><%= results.description %></textarea>
+    </div>
+    <div class="form_inputGroup">
+        <label for="updateForm_character">Character*</label>
+        <select name="character" id="updateForm_character">
+                <% energy.forEach((c) => { %>
+                    <option value="<%= c.id %>" <%= c.id === results.fk_charclass ? 'selected':'' %>><%= c.chars %></option>
+                <% }) %>
+        </select>
+    </div>
+    <button type="submit">Send</button>
+</form>
+<img src="/img/<%= results.image %>" alt="">
+<p class="form_p"><%= (typeof errorMessage != 'undefined') ? errorMessage : '' %></p>
+<% include partials/admin_footer.ejs %>
+<% include partials/admin_after-footer.ejs %>

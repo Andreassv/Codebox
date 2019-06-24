@@ -1,0 +1,40 @@
+<% include partials/admin_head.ejs %>
+<% include partials/admin_header.ejs %>
+<% include partials/adminNavigation.ejs %>
+<main>
+    <h1>All Cards</h1>
+    <h4> <a href="/admin/create-card"><i class="fas fa-plus-square"></i> Add a new card</a></h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Rarity</th>
+            <th>Type</th>
+            <th>Energy</th>
+            <th>Description</th>
+            <!-- <th>Name+</th>
+            <th>Energy+</th>
+            <th>Description+</th> -->
+            <th>Character</th>
+            <th>Functions</th>
+        </tr>
+        <% results.forEach(result => { %>
+            <tr>
+                <td><%= result.name %></td>
+                <td><img src="/img/<%= result.image %>" alt=""></td>
+                <td><%= result.niveau %></td>
+                <td><%= result.variant %></td>
+                <td><%= result.cost %></td>
+                <td><%= result.description %></td>
+                <td><%= result.char_name %></td>
+                <td>
+                        <% if(userLevel == 90 || userLevel == 100) { %>
+                        <a href="admin/delete-card/<%= result.id %>" data-id="<%= result.id %>" class="fas fa-trash-alt delete"></a>
+                        <%	} %>
+                        <a href='/admin/edit-card/<%= result.id %>'class="far fa-edit"></a>
+            </tr>
+        <%}) %>
+    </table>
+</main>
+<% include partials/admin_footer.ejs %>
+<% include partials/admin_after-footer.ejs %>

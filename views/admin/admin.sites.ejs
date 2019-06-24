@@ -1,0 +1,23 @@
+<% include partials/admin_head.ejs %>
+<% include partials/admin_header.ejs %>
+<% include partials/adminNavigation.ejs %>
+<main>
+    <h1>Site pages</h1>
+    <h4> <a href="/admin/create-site"><i class="fas fa-plus-square"></i> Add a new page</a></h4>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Functions</th>
+        </tr>
+    <% results.forEach(result => {%>
+        <tr>
+            <td><%= result.titel %></td>
+            <td><%= result.username %></td>
+            <td><a href='/admin/edit-site/<%= result.id %>'><i class="far fa-edit"></i></a><a onclick='return confirm("Er du sikker på at du vill slette siden <%= result.titel %>?")' href="/admin/delete-page/<%= result.id %>"><i class="fas fa-trash-alt"></i></a></td>
+        </tr>
+    <%}) %>
+    </table>
+</main>
+<% include partials/admin_footer.ejs %>
+<% include partials/admin_after-footer.ejs %>

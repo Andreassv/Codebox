@@ -1,0 +1,81 @@
+@font-face {
+	font-family: 'Noto Serif';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/NotoSerif-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Noto Serif';
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/NotoSerif-Italic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Noto Serif';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/NotoSerif-Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Noto Serif';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/NotoSerif-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/Raleway-Bold.ttf') format('truetype');
+}
+
+:root {
+	--fontSize: calc(1em + (21 - 16) * (100vw - 412px) / (1920 - 412));
+	--fontFacePrimary: 'Noto Serif';
+	--fontFaceSecondary: 'Raleway';
+
+	--colorPrimaryForeground: hsl(0, 0%, 7%);
+	--colorPrimaryBackground: hsl(0, 0%, 97%);
+}
+
+body {
+	font-family: var(--fontFacePrimary);
+	font-display: swap;
+	font-size: var(--fontSize);
+	color: var(--colorPrimaryForeground);
+	background-color: var(--colorPrimaryBackground);
+	display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 14vh repeat(4, 1fr);
+}
+header {
+    background-color: grey;
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+}
+header img {
+    text-align: left;
+}
+main {
+    padding: 0 5vw;
+    background-color: #b6b6b6;
+    grid-column: 1 / 6;
+    grid-row: 3 / 5;
+}
+main li {
+    list-style-type: none;
+}   
+footer {
+    grid-column: 1 / 6;
+    grid-row: 5 / 6;
+} 
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--fontFaceSecondary);
+	font-display: swap;
+	margin-bottom: 0.5vh;
+}

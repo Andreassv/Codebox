@@ -1,0 +1,20 @@
+<% include partials/head.ejs %>
+<% include partials/header.ejs %>
+<section>
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <div>
+            <label for="loginForm__username">Brugernavn</label>
+            <input type="text" name="username" id="loginForm__username" value="<%= (typeof username != 'undefined') ? username : '' %>">
+        </div>
+        <div>
+            <label for="loginForm__passphrase">Adgangskode</label>
+            <input type="password" name="passphrase" id="loginForm__passphrase" value="<%= (typeof passphrase != 'undefined') ? passphrase : '' %>">
+        </div>
+        <button type="submit">Log in</button>
+    </form>
+    <p class="form_p"><%= (typeof errorMessage != 'undefined') ? errorMessage : '' %></p>
+    <p class="form_p">Hvis du ikke har en profil kan du tilmelde dig ved at clikke <a href="/signup">her</a></p>
+</section>
+<% include partials/footer.ejs %>
+<% include partials/after-footer.ejs %>

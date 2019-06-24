@@ -1,0 +1,32 @@
+<nav id="adminMenu" class="adminNavigation" role="navigation">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<a href="/admin"><i class="fas fa-home"></i> Home</a>
+	<% if(userLevel == 90 || userLevel == 100) { %>
+	<button class="dropdown-btn"><i class="fas fa-users"></i> Users
+	</button>
+	  <div class="dropdown-container">
+			<a href="/admin/users">Edit users</a>
+	  </div>
+	  <%	} %>
+	<button class="dropdown-btn"><i class="fas fa-sitemap"></i> Sites
+	</button>
+	  <div class="dropdown-container">
+			  <a href="/admin/sites">Character</a>
+			</div>
+ 	<button class="dropdown-btn"><i class="fas fa-mortar-pestle"></i> Cards
+	</button>
+	  <div class="dropdown-container">
+			<a href="/admin/cards">All</a>
+			<a href="/admin/cards/ironclad">Ironclad</a>
+			<a href="/admin/cards/sillent">Sillent</a>
+			<a href="/admin/cards/defect">Defect</a>
+			<a href="/admin/cards/neutral">Neutral</a>
+	  </div>
+	<button class="dropdown-btn"><i class="far fa-user"></i> Profile 
+	</button>
+		<div class="dropdown-container">
+			<a href="/profile">Profile page</a>
+			<a href="/logout">Logout</a>
+		</div>
+</nav>
+<span id="MenuBurger" onclick="openNav()">&#9776;</span>

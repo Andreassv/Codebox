@@ -1,0 +1,106 @@
+/*----------navbar----------*/
+.primaryNavigation {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(86,65,049, 0.8);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 3.75em;
+    text-align:center;
+    grid-column: 1 / 6;
+    grid-row: 2 / 2;
+}
+.primaryNavigation a, .dropdown-btn {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0.5em 0.25em;
+    font-size: 2em;
+    border: none;
+    background: none;
+    text-decoration: none;
+    color: #fbd044;
+    transition: 0.3s;
+}
+.primaryNavigation a:hover, .dropdown-btn:hover {
+    color: #ad8d39;
+    text-decoration: underline;
+}
+/* Dropdown container (hidden by default)*/
+.dropdown-container {
+    text-align: left;
+    display: none;
+    padding-left: 8px;
+}
+.fa-caret-down {
+    margin-left: 0.25em; 
+}
+.primaryNavigation .closebtn {
+    position: absolute;
+    font-size: 9.5vh;
+    cursor:pointer;
+    top: 0;
+    left: 1.5vw;
+}
+a.closebtn {
+    padding: 0; 
+}
+a.closebtn:hover {
+    color: #fbd044;
+    text-decoration: none;
+}
+a.active {
+    color: #ad8d39;
+    text-decoration: underline;
+}
+#MenuBurger {
+    font-size: 6vh;
+    cursor:pointer;
+    padding: 0 1.5vw;
+    background-color: rgba(86,65,049, 1);
+    color: #fbd044;
+}
+#MenuBurger:hover {
+    background-color:#ad8d39;
+    color: rgba(86,65,049, 1);
+}   
+@media only screen and (min-width: 600px) {   
+.primaryNavigation {
+	height: auto;
+	font-size: 1em;
+	width: 100%;
+	position: static;
+	display: block;
+	overflow-x: visible;
+    padding-top: 0;
+    text-align: initial;
+}
+.primaryNavigation a, .dropdown-btn {
+	font-size: 1.5em;
+}
+.dropdown-btn {
+    position: relative;
+    width: 15vw;
+}
+.dropdown-container {
+    position: absolute;
+    background-color: inherit;
+    padding: 0.5vh 0.5vw;
+}
+.dropdown-container a{
+    display: block;
+}
+span {
+	display: none;
+}
+a.closebtn {
+	font-size: 0;
+	display: none;
+}
+#slides img {
+	height: 100vh;
+}
+}

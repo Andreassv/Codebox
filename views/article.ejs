@@ -1,0 +1,13 @@
+<% include partials/head.ejs %>
+<% include partials/header.ejs %>
+<h1>Samlet artikler</h1>
+<table>
+        <tr>
+            <th>titel</th>
+            <% results.forEach(result => { %>
+            <tr>
+                <td><a href="/article/<%= result.id %>"><%= result.titel %></a></td>
+        <%}) %>
+    </table>
+<% include partials/footer.ejs %>
+<% include partials/after-footer.ejs %>

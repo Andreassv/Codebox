@@ -1,0 +1,71 @@
+	<script>
+	const cssLoader = function (stylesheet) {
+	const link = document.createElement('link');
+	link.setAttribute('rel', 'stylesheet');
+	link.setAttribute('type', 'text/css');
+	link.setAttribute('href', stylesheet);
+	document.getElementsByTagName('head')[0]
+		.appendChild(link);
+	};
+
+	document.addEventListener('DOMContentLoaded', () => {
+		cssLoader('/stylesheets/admin.css');
+		cssLoader('/stylesheets/main.css');
+	});
+	</script>
+	<script>
+	/*jslint browser, es6, for */
+window.addEventListener( 'load', function()
+{   'use strict';
+
+});
+/*----------menu----------*/
+function openNav() {
+    document.getElementById("adminMenu").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("adminMenu").style.width = "0";
+}
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+const deletebutton = document.querySelectorAll('.delete');
+deletebutton.forEach(btn => {
+	btn.addEventListener('click', 
+	event => {
+		const id = event.target.dataset.id;
+
+		fetch(`/admin/delete-card/${id}`, {
+			'method':"DELETE"
+		})
+				.then(Response => {
+					if (Response.status === 200) {
+						
+						window.location.reload();
+
+					} else if(Response.status === 401) {
+						document.querySelector('.dangermessage').innerHTML = 'Du har ikke den nødvendige niveau til at udføre denne handling';
+					}
+		});
+	});
+});
+</script>
+	<noscript>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">
+	</noscript>
+</body>
+</html>

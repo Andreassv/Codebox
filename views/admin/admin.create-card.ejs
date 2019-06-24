@@ -1,0 +1,82 @@
+<% include partials/admin_head.ejs %>
+<% include partials/admin_header.ejs %>
+<% include partials/adminNavigation.ejs %>
+<form action="/admin/cards" enctype="multipart/form-data" method="POST">
+    <h1>Create a new card</h1>
+    <h3>Fields market with a* have to be filled, all oter are optional</h3>
+    <div class="form_inputGroup">
+        <label for="createForm_name">Name:</label>
+        <input type="text" name="name" id="createForm_name" required>
+    </div>
+    <div class="form_inputGroup">
+        <label for="createForm_image">image:</label>
+        <input type="file" name="image" id="createForm_image" required>
+    </div>
+    <div class="form_inputGroup">
+        <label for="createForm_niveau">Rarity:</label>
+        <select name="rarity" id="createForm_niveau" required>
+            <option value="1">Starter</option>
+            <option value="2">Common</option>
+            <option value="3">Uncommon</option>
+            <option value="4">Rare</option>
+            <option value="5">None</option>
+            <option value="6">Special</option>
+        </select>
+    </div>
+    <div class="form_inputGroup">
+        <label for="createForm_type">Type:</label>
+        <select name="type" id="createForm_type" required>
+            <option value="1">Attack</option>
+            <option value="2">Skill</option>
+            <option value="3">Power</option>
+            <option value="4">Status</option>
+            <option value="5">Curse</option>
+            <option value="6">Special curse</option>
+        </select>
+    </div>
+    <div class="form_inputGroup">
+        <label for="createForm_energy">Energy:</label>
+        <select name="energy" id="createForm_energy">
+            <option selected value=""></option>
+            <option value="1">0</option>
+            <option value="2">1</option>
+            <option value="3">2</option>
+            <option value="4">3</option>
+        </select>
+    </div>
+    <div class="form_inputGroup">
+        <label for="createForm_description">Description:</label>
+        <textarea cols="50" rows="4" name="description" id="createForm_description" required></textarea>
+    </div>
+    <!-- <div class="form_inputGroup">
+        <label for="createForm_name">Name+</label>
+        <input type="text" name="name_plus" id="createForm_name_plus">
+    </div>
+    <div class="form_inputGroup">
+        <label for="createForm_energy_plus">Energy+</label>
+        <select name="energy_plus" id="createForm_energy_plus">
+            <option selected value=""></option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    <div class="form_inputGroup">
+        <label for="createForm_description">Description+</label>
+        <textarea cols="50" rows="4" name="description_plus" id="createForm_description_plus"></textarea>
+    </div> -->
+    <div class="form_inputGroup">
+        <label for="createForm_character">Character:</label>
+        <select name="character" id="createForm_character">
+            <option value="1">The Ironclad</option>
+            <option value="2">The Silent</option>
+            <option value="3">The Defect</option>
+            <option value="4">Neutral</option>
+        </select>
+    </div>
+    <button type="submit">Send</button>
+</form>
+<p class="form_p"><%= (typeof errorMessage != 'undefined') ? errorMessage : '' %></p>
+<% include partials/admin_footer.ejs %>
+<% include partials/admin_after-footer.ejs %>

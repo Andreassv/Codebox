@@ -1,0 +1,44 @@
+{
+  "name": "template",
+  "version": "0.3.0",
+  "description": "en kodebase til alle mine fremtidige opgaver",
+  "main": "server.js",
+  "scripts": {
+    "test": "https://github.com/Andreassv/Codebox",
+    "start": "node -r dotenv/config server.js dotenv_config_path=./.env",
+    "dev": "run-script-os",
+    "dev:win32": "set DEBUG=template & nodemon -r dotenv/config server.js dotenv_config_path=./.env",
+    "dev:linux": "DEBUG=template nodemon -r dotenv/config server.js dotenv_config_path=./.env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andreassv/Codebox.git"
+  },
+  "keywords": [
+    "base",
+    "code"
+  ],
+  "author": "Andreas Svendsen <andreassv@live.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Andreassv/Codebox/issues"
+  },
+  "homepage": "https://github.com/Andreassv/Codebox#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "env": "0.0.2",
+    "express": "^4.16.4",
+    "express-formidable": "^1.2.0",
+    "express-log-errors": "^2.0.2",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "debug": "^4.1.0",
+    "nodemon": "^1.18.6",
+    "run-script-os": "^1.0.3"
+  }
+}
