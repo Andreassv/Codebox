@@ -43,7 +43,7 @@
     <div class="form_inputGroup">
         <label for="updateForm_character">Character*</label>
         <select name="character" id="updateForm_character">
-                <% energy.forEach((c) => { %>
+                <% character.forEach((c) => { %>
                     <option value="<%= c.id %>" <%= c.id === results.fk_charclass ? 'selected':'' %>><%= c.chars %></option>
                 <% }) %>
         </select>
